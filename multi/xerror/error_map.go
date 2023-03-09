@@ -12,17 +12,17 @@ var (
 )
 
 func init() {
-	DefaultErrorMul.Set(IllegalAccessToken, "zh", "非法token")
+	DefaultErrorMul.Set(IllegalAccessToken, "zh-cn", "非法token")
 	DefaultErrorMul.Set(IllegalAccessToken, "en", "Illegal token")
-	DefaultErrorMul.Set(IllegalCertificate, "zh", "非法凭证")
+	DefaultErrorMul.Set(IllegalCertificate, "zh-cn", "非法凭证")
 	DefaultErrorMul.Set(IllegalCertificate, "en", "Illegal certificate")
-	DefaultErrorMul.Set(IllegalParameter, "zh", "非法参数")
+	DefaultErrorMul.Set(IllegalParameter, "zh-cn", "非法参数")
 	DefaultErrorMul.Set(IllegalParameter, "en", "Illegal parameter")
-	DefaultErrorMul.Set(RecordNotFound, "zh", "记录未找到")
+	DefaultErrorMul.Set(RecordNotFound, "zh-cn", "记录未找到")
 	DefaultErrorMul.Set(RecordNotFound, "en", "record not found")
-	DefaultErrorMul.Set(AlreadyExists, "zh", "已经存在")
+	DefaultErrorMul.Set(AlreadyExists, "zh-cn", "已经存在")
 	DefaultErrorMul.Set(AlreadyExists, "en", "already exists")
-	DefaultErrorMul.Set(SortParameterMismatch, "zh", "排序参数不匹配")
+	DefaultErrorMul.Set(SortParameterMismatch, "zh-cn", "排序参数不匹配")
 	DefaultErrorMul.Set(SortParameterMismatch, "en", "sort parameter mismatch")
 
 }

@@ -17,7 +17,7 @@ func GetLanguage(ctx context.Context) string {
 	if val, ok := ctx.Value(languageCtxTag{}).(string); ok {
 		return val
 	}
-	return "zh"
+	return "zh-cn"
 }
 
 type userUuidCtxTag struct{}
