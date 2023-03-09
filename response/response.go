@@ -19,8 +19,8 @@ type Response struct {
 }
 
 // NewResponse new
-func NewResponse(language string) *Response {
-	return &Response{status: http.StatusOK, Language: language}
+func NewResponse() *Response {
+	return &Response{status: http.StatusOK}
 }
 
 // SetErrors set error
@@ -41,6 +41,7 @@ func (r *Response) Success(ctx *fiber.Ctx, data interface{}) error {
 	if r.Message == "" {
 		r.Message = "success"
 	}
+	r.Language = scontext.GetLanguage(ctx.UserContext())
 	return ctx.Status(r.status).JSON(r)
 }
 
@@ -48,7 +49,7 @@ func (r *Response) Success(ctx *fiber.Ctx, data interface{}) error {
 var ErrorHandler = func(ctx *fiber.Ctx, err error) error {
 	status := fiber.StatusOK
 	userCtx := ctx.UserContext()
-	resp := NewResponse(scontext.GetLanguage(userCtx))
+	resp := NewResponse()
 	resp.Code = -1
 	switch err.(type) {
 	case *fiber.Error:
