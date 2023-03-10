@@ -2,6 +2,7 @@ package scontext
 
 import (
 	"context"
+	"github.com/olongfen/toolkit/consts"
 	"strings"
 )
 
@@ -18,7 +19,7 @@ func GetLanguage(ctx context.Context) string {
 	if val, ok := ctx.Value(languageCtxTag{}).(string); ok {
 		return strings.ToLower(val)
 	}
-	return "zh-cn"
+	return consts.SimplifiedChinese
 }
 
 type userUuidCtxTag struct{}

@@ -1,6 +1,7 @@
 package xerror
 
 import (
+	"github.com/olongfen/toolkit/consts"
 	"sync"
 )
 
@@ -11,25 +12,19 @@ var (
 	}
 )
 
-const (
-	SimplifiedChinese  = "zh-cn"
-	TraditionalChinese = "zh-tw"
-	English            = "en"
-)
-
 func init() {
-	DefaultErrorMul.Set(IllegalAccessToken, SimplifiedChinese, "非法token")
-	DefaultErrorMul.Set(IllegalAccessToken, SimplifiedChinese, "Illegal token")
-	DefaultErrorMul.Set(IllegalCertificate, SimplifiedChinese, "非法凭证")
-	DefaultErrorMul.Set(IllegalCertificate, SimplifiedChinese, "Illegal certificate")
-	DefaultErrorMul.Set(IllegalParameter, SimplifiedChinese, "非法参数")
-	DefaultErrorMul.Set(IllegalParameter, SimplifiedChinese, "Illegal parameter")
-	DefaultErrorMul.Set(RecordNotFound, SimplifiedChinese, "记录未找到")
-	DefaultErrorMul.Set(RecordNotFound, SimplifiedChinese, "record not found")
-	DefaultErrorMul.Set(AlreadyExists, SimplifiedChinese, "已经存在")
-	DefaultErrorMul.Set(AlreadyExists, SimplifiedChinese, "already exists")
-	DefaultErrorMul.Set(SortParameterMismatch, SimplifiedChinese, "排序参数不匹配")
-	DefaultErrorMul.Set(SortParameterMismatch, SimplifiedChinese, "sort parameter mismatch")
+	DefaultErrorMul.Set(IllegalAccessToken, consts.SimplifiedChinese, "非法token")
+	DefaultErrorMul.Set(IllegalAccessToken, consts.SimplifiedChinese, "Illegal token")
+	DefaultErrorMul.Set(IllegalCertificate, consts.SimplifiedChinese, "非法凭证")
+	DefaultErrorMul.Set(IllegalCertificate, consts.SimplifiedChinese, "Illegal certificate")
+	DefaultErrorMul.Set(IllegalParameter, consts.SimplifiedChinese, "非法参数")
+	DefaultErrorMul.Set(IllegalParameter, consts.SimplifiedChinese, "Illegal parameter")
+	DefaultErrorMul.Set(RecordNotFound, consts.SimplifiedChinese, "记录未找到")
+	DefaultErrorMul.Set(RecordNotFound, consts.SimplifiedChinese, "record not found")
+	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "已经存在")
+	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "already exists")
+	DefaultErrorMul.Set(SortParameterMismatch, consts.SimplifiedChinese, "排序参数不匹配")
+	DefaultErrorMul.Set(SortParameterMismatch, consts.SimplifiedChinese, "sort parameter mismatch")
 
 }
 
