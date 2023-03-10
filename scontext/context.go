@@ -2,6 +2,7 @@ package scontext
 
 import (
 	"context"
+	"strings"
 )
 
 type languageCtxTag struct {
@@ -15,7 +16,7 @@ func SetLanguage(ctx context.Context, lang string) context.Context {
 // GetLanguage get language by context
 func GetLanguage(ctx context.Context) string {
 	if val, ok := ctx.Value(languageCtxTag{}).(string); ok {
-		return val
+		return strings.ToLower(val)
 	}
 	return "zh-cn"
 }
