@@ -14,17 +14,28 @@ var (
 
 func init() {
 	DefaultErrorMul.Set(IllegalAccessToken, consts.SimplifiedChinese, "非法token")
-	DefaultErrorMul.Set(IllegalAccessToken, consts.SimplifiedChinese, "Illegal token")
+	DefaultErrorMul.Set(IllegalAccessToken, consts.TraditionalChinese, "非法token")
+	DefaultErrorMul.Set(IllegalAccessToken, consts.English, "Illegal token")
+
 	DefaultErrorMul.Set(IllegalCertificate, consts.SimplifiedChinese, "非法凭证")
-	DefaultErrorMul.Set(IllegalCertificate, consts.SimplifiedChinese, "Illegal certificate")
+	DefaultErrorMul.Set(IllegalCertificate, consts.TraditionalChinese, "非法憑證")
+	DefaultErrorMul.Set(IllegalCertificate, consts.English, "Illegal certificate")
+
 	DefaultErrorMul.Set(IllegalParameter, consts.SimplifiedChinese, "非法参数")
-	DefaultErrorMul.Set(IllegalParameter, consts.SimplifiedChinese, "Illegal parameter")
+	DefaultErrorMul.Set(IllegalParameter, consts.TraditionalChinese, "非法參數")
+	DefaultErrorMul.Set(IllegalParameter, consts.English, "Illegal parameter")
+
 	DefaultErrorMul.Set(RecordNotFound, consts.SimplifiedChinese, "记录未找到")
-	DefaultErrorMul.Set(RecordNotFound, consts.SimplifiedChinese, "record not found")
+	DefaultErrorMul.Set(RecordNotFound, consts.TraditionalChinese, "記錄未找到")
+	DefaultErrorMul.Set(RecordNotFound, consts.English, "record not found")
+
 	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "已经存在")
-	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "already exists")
+	DefaultErrorMul.Set(AlreadyExists, consts.TraditionalChinese, "已經存在")
+	DefaultErrorMul.Set(AlreadyExists, consts.English, "already exists")
+
 	DefaultErrorMul.Set(SortParameterMismatch, consts.SimplifiedChinese, "排序参数不匹配")
-	DefaultErrorMul.Set(SortParameterMismatch, consts.SimplifiedChinese, "sort parameter mismatch")
+	DefaultErrorMul.Set(SortParameterMismatch, consts.TraditionalChinese, "排序參數不匹配")
+	DefaultErrorMul.Set(SortParameterMismatch, consts.English, "sort parameter mismatch")
 
 }
 
