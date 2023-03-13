@@ -5,7 +5,7 @@ import (
 	"errors"
 	"github.com/olongfen/toolkit/multi/xerror"
 	"github.com/olongfen/toolkit/scontext"
-	"github.com/olongfen/toolkit/utils"
+	"github.com/olongfen/toolkit/tools"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/trace"
@@ -226,7 +226,7 @@ func (like ILike) NegationBuild(builder clause.Builder) {
 
 // ProcessDBWhere process field symbol
 func ProcessDBWhere(column string, value any, symbol string) clause.Expression {
-	column = utils.SnakeString(column)
+	column = tools.SnakeString(column)
 	switch symbol {
 	case ">":
 		return clause.Gt{Column: column, Value: value}
