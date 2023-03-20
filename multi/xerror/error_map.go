@@ -29,9 +29,9 @@ func init() {
 	DefaultErrorMul.Set(RecordNotFound, consts.TraditionalChinese, "記錄未找到")
 	DefaultErrorMul.Set(RecordNotFound, consts.English, "record not found")
 
-	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "已经存在")
-	DefaultErrorMul.Set(AlreadyExists, consts.TraditionalChinese, "已經存在")
-	DefaultErrorMul.Set(AlreadyExists, consts.English, "already exists")
+	DefaultErrorMul.Set(AlreadyExists, consts.SimplifiedChinese, "已经存在,不允许重复创建")
+	DefaultErrorMul.Set(AlreadyExists, consts.TraditionalChinese, "已經存在,不允許重複創建")
+	DefaultErrorMul.Set(AlreadyExists, consts.English, "already exists,duplicate creation is not allowed")
 
 	DefaultErrorMul.Set(SortParameterMismatch, consts.SimplifiedChinese, "排序参数不匹配")
 	DefaultErrorMul.Set(SortParameterMismatch, consts.TraditionalChinese, "排序參數不匹配")
