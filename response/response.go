@@ -2,6 +2,7 @@ package response
 
 import (
 	fiber "github.com/gofiber/fiber/v2"
+	"github.com/olongfen/toolkit/consts"
 	"github.com/olongfen/toolkit/multi/xerror"
 	"github.com/olongfen/toolkit/scontext"
 	"net/http"
@@ -38,8 +39,18 @@ func (r *Response) SetMessage(msg string) *Response {
 // Success response success
 func (r *Response) Success(ctx *fiber.Ctx, data interface{}) error {
 	r.Data = data
+	userCtx := ctx.UserContext()
+	lan := scontext.GetLanguage(userCtx)
 	if r.Message == "" {
-		r.Message = "success"
+		switch lan {
+		case consts.English:
+			r.Message = "success"
+		case consts.TraditionalChinese:
+			r.Message = "成功"
+		default:
+			r.Message = "成功"
+		}
+
 	}
 	r.Language = scontext.GetLanguage(ctx.UserContext())
 	return ctx.Status(r.status).JSON(r)
@@ -49,14 +60,22 @@ func (r *Response) Success(ctx *fiber.Ctx, data interface{}) error {
 var ErrorHandler = func(ctx *fiber.Ctx, err error) error {
 	status := fiber.StatusOK
 	userCtx := ctx.UserContext()
+	lan := scontext.GetLanguage(userCtx)
 	resp := NewResponse()
+	switch lan {
+	case consts.English:
+		resp.Message = "success"
+	case consts.TraditionalChinese:
+		resp.Message = "失敗"
+	default:
+		resp.Message = "成功"
+	}
 	resp.Code = -1
 	switch err.(type) {
 	case *fiber.Error:
 		// 处理内部错误返回
 		e := err.(*fiber.Error)
 		resp.Code = e.Code
-		resp.Message = "failed"
 	case xerror.BizError:
 		// 处理自定义业务错误返回
 		e := err.(xerror.BizError)
@@ -65,7 +84,7 @@ var ErrorHandler = func(ctx *fiber.Ctx, err error) error {
 	case xerror.ValidateError:
 		resp.SetErrors(err.(xerror.ValidateError))
 		resp.Code = xerror.IllegalParameter
-		resp.Message = xerror.NewError(xerror.IllegalParameter, scontext.GetLanguage(userCtx)).Error()
+		resp.Message = xerror.NewError(xerror.IllegalParameter, lan).Error()
 	case xerror.DBErrorResponse:
 		// 处理数据库错误返回
 		var (
@@ -76,11 +95,9 @@ var ErrorHandler = func(ctx *fiber.Ctx, err error) error {
 			resp.Code = v.Code()
 			m[k] = v.Error()
 		}
-		resp.Message = "failed"
 		resp.SetErrors(m)
 	default:
 		status = fiber.StatusInternalServerError
-		resp.Message = "failed"
 	}
 	/*	// 处理内部错误返回
 		if e, ok := err.(*fiber.Error); ok {
