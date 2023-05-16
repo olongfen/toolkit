@@ -14,6 +14,7 @@ import (
 	"gorm.io/gorm/clause"
 	"log"
 	"strings"
+	"time"
 )
 
 // DBData db data
@@ -241,7 +242,7 @@ func ProcessDBWhere(column string, value any, symbol string) clause.Expression {
 	case "ilike":
 		return ILike{Column: column, Value: value}
 	case "in":
-		return clause.IN{Column: column, Values: []interface{}{value}}
+		return clause.IN{Column: column, Values: in(value)}
 	case "expr":
 		return clause.Expr{
 			SQL: column,
@@ -249,4 +250,62 @@ func ProcessDBWhere(column string, value any, symbol string) clause.Expression {
 	default:
 		return clause.Eq{Column: column, Value: value}
 	}
+}
+
+func in(value any) (ret []interface{}) {
+	switch value.(type) {
+	case []string:
+		arr := value.([]string)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []int:
+		arr := value.([]int)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []int8:
+		arr := value.([]int8)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []int16:
+		arr := value.([]int16)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []int32:
+		arr := value.([]int32)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []int64:
+		arr := value.([]int64)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []*time.Time:
+		arr := value.([]*time.Time)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []bool:
+		arr := value.([]bool)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []float32:
+		arr := value.([]float32)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	case []float64:
+		arr := value.([]float64)
+		for _, v := range arr {
+			ret = append(ret, v)
+		}
+	default:
+		ret = append(ret, value)
+	}
+	return
 }
