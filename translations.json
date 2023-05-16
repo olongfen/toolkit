@@ -1,0 +1,42 @@
+[
+   {
+     "id": "AlreadyExists",
+     "translations":{
+       "en": "already exists,duplicate creation is not allowed",
+       "zh-CN": "已经存在,不允许重复创建",
+       "zh-TW": "已經存在,不允許重複創建"
+     }
+  },
+  { "id": "IllegalAccessToken",
+    "translations":{
+    "en": "Illegal token",
+    "zh-CN": "非法token",
+    "zh-TW": "非法token"
+  }
+  },
+  {"id":"IllegalCertificate",
+    "translations": {
+    "en": "Illegal certificate",
+    "zh-CN": "非法凭证",
+    "zh-TW": "非法憑證"
+  }},
+  {"id":"IllegalParameter",
+    "translations": {
+    "en": "Illegal parameter",
+    "zh-CN": "非法参数",
+    "zh-TW": "非法參數"
+  }},
+  {"id":"RecordNotFound",
+    "translations": {
+    "en": "record not found",
+    "zh-CN": "记录未找到",
+    "zh-TW": "記錄未找到"
+  }},
+  {"id":"SortParameterMismatch",
+    "translations": {
+    "en": "sort parameter mismatch",
+    "zh-CN": "排序参数不匹配",
+    "zh-TW": "排序參數不匹配"
+  }}
+]
+

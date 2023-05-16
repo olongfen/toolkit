@@ -64,11 +64,11 @@ var ErrorHandler = func(ctx *fiber.Ctx, err error) error {
 	resp := NewResponse()
 	switch lan {
 	case consts.English:
-		resp.Message = "success"
+		resp.Message = "failed"
 	case consts.TraditionalChinese:
 		resp.Message = "失敗"
 	default:
-		resp.Message = "成功"
+		resp.Message = "失败"
 	}
 	resp.Code = -1
 	switch err.(type) {
